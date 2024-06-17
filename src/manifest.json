@@ -1,19 +1,28 @@
 {
- "background": {"scripts": ["background.js"]},
- "browser_action": {
- "default_icon": "icon-48.png",
- "default_title": "Arxiver"
- },
- "name": "Arxiver",
- "description": "",
- "homepage_url": "https://linkedin.com/in/sc268",
- "icons": {
-     "16": "icon-16.png",
-     "48": "icon-48.png"},
- "permissions": [
-     "http://arxiv.org/*",
-     "https://arxiv.org//*"
- ],
- "version": "0.1",
- "manifest_version": 2
+    "manifest_version": 3,
+    "name": "Arxiver",
+    "description": "Download arXiv papers with their original title as the filename.",
+    "version": "0.3", 
+    "action": {
+        "default_icon": "icon-48.png",
+        "default_title": "Arxiver"
+    },
+    "icons": {
+        "16": "icon-16.png",
+        "48": "icon-48.png"
+    },
+    "host_permissions": [
+        "http://arxiv.org/*",
+        "https://arxiv.org/*"
+    ],
+    "permissions": ["activeTab", "scripting"],  
+    "background": {
+        "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["bookmarklet.js"],
+            "matches": ["http://arxiv.org/*", "https://arxiv.org/*"]
+        }
+    ]
 }
