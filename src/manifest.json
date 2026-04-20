@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Arxiver",
-    "description": "Download arXiv papers with their original title as the filename.",
-    "version": "0.3", 
+    "description": "Download research papers with their original title as the filename.",
+    "version": "0.4",
     "action": {
         "default_icon": "icon-48.png",
         "default_title": "Arxiver"
@@ -12,17 +12,13 @@
         "48": "icon-48.png"
     },
     "host_permissions": [
+        "https://arxiv.org/*",
         "http://arxiv.org/*",
-        "https://arxiv.org/*"
+        "https://scholar.google.com/*",
+        "https://mail.google.com/*"
     ],
-    "permissions": ["activeTab", "scripting"],  
+    "permissions": ["activeTab", "scripting", "downloads"],
     "background": {
         "service_worker": "background.js"
-    },
-    "web_accessible_resources": [
-        {
-            "resources": ["bookmarklet.js"],
-            "matches": ["http://arxiv.org/*", "https://arxiv.org/*"]
-        }
-    ]
+    }
 }
